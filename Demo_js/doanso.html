@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="doansoform">
+        <input type="text" name="sobk" placeholder="Nhập số bất kỳ từ 10-15"><br>
+        <input type="button" value="Kết quả" onclick="doanso()">
+        <h1 id="ketqua"></h1>
+    </form>
+
+    <script>
+        function doanso() {
+            var sobk = document.forms["doansoform"]["sobk"].value;
+            //Nếu Math.random() trả về 0.3, thì 5 * 0.3 là 1.5. Sau đó Math.round(1.5) là 2. 
+            //Cuối cùng 10 + 2 là 12.
+            var x = 10 + Math.round(5 * Math.random());
+            var kq="";
+            if(x==sobk){
+                kq="Bạn là thiên tài. Chúc mừng bạn!" + " " + x;
+            }
+            else if(x<sobk){
+                kq="Rất tiếc! Số bạn nhập bé hơn số may mắn " + " " + x;
+            }
+            else{
+                kq="Rất tiếc! Số bạn nhập lớn hơn số may mắn " + " " + x;
+            }
+            document.getElementById("ketqua").innerHTML=kq;
+        }
+    </script>
+</body>
+</html>

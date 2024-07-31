@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="hinhchunhatform">
+        <input type="text" name="dai" id="dai" placeholder="chiều dài"><br>
+        <input type="text" name="rong" id="rong" placeholder="chiều rộng"><br>
+        <input type="button" value="Kết quả" onclick="hinhchunhat()">
+        <h1 id="chuvi"></h1>
+        <h1 id="dientich"></h1>
+    </form>
+    <script>
+        function hinhchunhat() {
+            var dai = document.forms["hinhchunhatform"]["dai"];
+            var rong = document.forms["hinhchunhatform"]["rong"];
+            if(dai.value == ""){
+                alert("Dữ liệu chiều dài hình chữ nhật phải được nhập");
+                dai.focus();
+            }
+            else if(dai.value == ""){
+                alert("Dữ liệu chiều rộng hình chữ nhật phải được nhập");
+                dai.focus();
+            }
+            else{
+                if(!isNaN(dai.value)&&!isNaN(rong.value)){
+                    dai = parseInt(dai.value);
+                    rong = parseInt(rong.value);  
+                    var chuvi = (dai+rong)*2;
+                    var dientich = dai * rong;
+                    //alert(chuvi + " " + dientich);
+                    document.getElementById("chuvi").innerHTML="Chu vi hình chữ nhật có dài " +dai+" và rộng " +rong +" là: " + chuvi;
+                    document.getElementById("dientich").innerHTML="Diện tích hình chữ nhật có dài " +dai+" và rộng " +rong +" là: " + dientich;
+                }else{
+                    alert("Chiều dài & chiều rộng của hình chữ nhật phải là số nguyên dương. Vui lòng nhập lại");
+                    dai.focus();
+                }
+            }
+        }
+    </script>
+</body>
+</html>

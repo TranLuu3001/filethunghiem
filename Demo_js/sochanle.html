@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="sochansoleform">
+        <input type="text" id="so1" placeholder="Nhập số bất kỳ thứ 1"><br>
+        <input type="text" id="so2" placeholder="Nhập số bất kỳ thứ 2"><br>
+        <input type="button" value="Kết quả" onclick="sochansole()">
+        <h1 id="ketqua1"></h1>
+        <h1 id="ketqua2"></h1>
+    </form>
+    <script>
+        function sochansole() {
+            var so1 = parseInt(document.getElementById("so1").value);
+            var so2 = parseInt(document.forms["sochansoleform"]["so2"].value);
+
+            document.getElementById("ketqua1").innerHTML=kiemtraso(so1);
+            document.getElementById("ketqua2").innerHTML=kiemtraso(so2);
+        }
+
+        function kiemtraso(x) {
+            if(x%2==0){
+                return x + " là số chẵn";
+            }
+            else{
+                return x +" là số lẽ";
+            }
+        }
+    </script>
+</body>
+</html>

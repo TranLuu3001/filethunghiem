@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="bangdiemform">
+        <input type="text" name="mssv" placeholder="Nhập mssv">
+        <input type="text" name="hoten" placeholder="Nhập tên sinh viên">
+        <input type="text" name="diem" placeholder="Nhập điểm tb">
+        <input type="button" value="Nhập" onclick="dssv()">
+    </form>
+    <div>
+        <table id="ketqua"></table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </div>
+
+    <script>
+        var dsdiem=[];
+
+        function dssv() {
+            var mssv = document.forms["bangdiemform"]["mssv"].value;
+            var hoten = document.forms["bangdiemform"]["hoten"].value;
+            var diem = document.forms["bangdiemform"]["diem"].value;
+            var sv ={
+                mssv:mssv,
+                hoten:hoten,
+                diem:diem,
+                xeploai:function(){
+                    if(diem>5){
+                        return "Đậu";
+                    }
+                    else{
+                        return "Trượt";
+                    }
+                }
+            }
+            dsdiem[dsdiem.length]=sv;
+
+            document.getElementById("ketqua").innerHTML=showkq();
+        }
+
+        function showkq() {
+            var kq ="";
+            dsdiem.forEach(sv => {
+                kq+="<tr><td>"+sv.mssv +"</td><td>" +sv.hoten +"</td><td>"+ sv.diem +"</td><td>"+sv.xeploai()+"</td></tr>";
+            });
+            return kq;
+        }
+    </script>
+</body>
+</html>

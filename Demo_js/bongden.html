@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .boxcenter{
+            width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .boxcenter img{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            background-color: #CCC;
+            border-radius: 10px;
+            padding: 5px 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="boxcenter">
+        <img id="bongden" src="Images/off.jpg" alt="">
+        <h1 id="txt">BÓNG ĐÈN</h1>
+        <input type="button" value="ON" onclick="bongden(1)">
+        <input type="button" value="OFF" onclick="bongden(2)">
+    </div>
+
+    <script>
+        function bongden(x) {
+            var den = document.getElementById("bongden");
+            var text = document.getElementById("txt");
+            switch (x) {
+                case 1:
+                    den.src="Images/on.jpg";
+                    text.style.color="black";
+                    break;
+                case 2:
+                    den.src="Images/off.jpg";
+                    text.style.color="orange";
+                    break;
+                default:
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
